@@ -1,5 +1,5 @@
-server:
-  port: 9988
+#server:
+#  port: 9988
 
 some:
   variable: test_value
