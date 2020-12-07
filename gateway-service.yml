@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      uri: ${SPRING_CONFIG_URI:http://localhost:8888}
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      # TODO: Check it!
+      # For curl "http://<gateway>/client-service/predicatePath/**"
+      routes:
+        - id: client-service-route
+          uri: lb://client-service
+          predicates:
+            - Path=/predicatePath/**
