@@ -6,8 +6,7 @@ spring:
       discovery:
         locator:
           enabled: true
-      # TODO: Check it!
-      # For curl "http://<gateway>/client-service/predicatePath/**"
+      # For curl "http://<gateway>/predicatePath/**"
       routes:
         - id: client-service-route
           uri: lb://client-service
