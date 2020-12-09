@@ -9,7 +9,15 @@ spring:
       # TODO: Check it!
       # For curl "http://<gateway>/client-service/predicatePath/**"
       routes:
-        - id: client-service-route
+        - id: client-service
           uri: lb://client-service
           predicates:
-            - Path=/predicatePath/**
+            - Path=/clientService/**
+          filters:
+            - RewritePath=/clientService/(?<path>.*), /$\{path}
+        - id: generator-service
+          uri: https://generator.swagger.io/
+          predicates:
+            - Path=/generatorService/**
+          filters:
+            - RewritePath=/generatorService/(?<path>.*), /$\{path}
