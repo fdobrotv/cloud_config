@@ -3,5 +3,3 @@
 
 some:
   variable: test_value
-management:
-  port: 60001
