@@ -9,6 +9,7 @@ spring:
       # For curl "http://<gateway>/predicatePath/**"
       routes:
         - id: client-service
+          //If you need a load balancing with Eureka, use "uri: lb://client-service"
           uri: http://client-service:11111
           predicates:
             - Path=/clientService/**
